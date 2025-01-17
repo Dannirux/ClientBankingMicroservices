@@ -14,6 +14,10 @@ El archivo `docker-compose.yml` está preparado para soportar uno o dos servicio
 1. **Una sola base de datos**: Ambos servicios, tanto la aplicación como los scripts asociados, utilizarán la misma base de datos para todas las operaciones.
 2. **Dos bases de datos**: Una base será utilizada exclusivamente para almacenar los datos de clientes, mientras que la otra manejará el resto de las operaciones. Esto se controla ajustando los servicios y volúmenes dentro del archivo `docker-compose.yml`.
 
+Se deben llenar: o solo ocupar una sola para ambas.
+MYSQL_DATABASE: ms_person_client puerto 33306
+MYSQL_DATABASE: ms_accounts_movements puerto 3307
+
 ### Notas importantes
 - Si decides usar dos bases de datos, asegúrate de actualizar el archivo de configuración del script para indicar cuál base de datos manejará los datos de clientes.
 - El script detectará automáticamente si hay una o dos bases de datos configuradas y realizará las operaciones en consecuencia.
