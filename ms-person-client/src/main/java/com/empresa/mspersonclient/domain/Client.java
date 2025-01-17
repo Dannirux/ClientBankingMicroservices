@@ -31,6 +31,7 @@ public class Client extends Person {
     private String clienteId;
 
     @NotBlank(message = "La contraseña no puede estar vacía")
+    @Column(name = "contrasena")
     private String contraseña;
     private boolean estado;
 
