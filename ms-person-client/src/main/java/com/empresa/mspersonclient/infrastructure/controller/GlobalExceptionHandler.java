@@ -1,5 +1,6 @@
 package com.empresa.mspersonclient.infrastructure.controller;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -81,6 +82,12 @@ public class GlobalExceptionHandler {
                 return tableAndField.replace(")", "").trim();
             }
         }
-        return "campo_desconocido"; // Si no se puede determinar
+        return "campo_desconocido";
+    }
+
+    @ExceptionHandler(EntityNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleEntityNotFound(EntityNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(Map.of("message", ex.getMessage()));
     }
 }
