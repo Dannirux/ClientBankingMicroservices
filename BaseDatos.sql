@@ -1,5 +1,6 @@
--- Crear la base de datos si no existe
-CREATE DATABASE IF NOT EXISTS ms_person_client;
+-- Eliminar la base de datos si existe y crearla nuevamente
+DROP DATABASE IF EXISTS ms_person_client;
+CREATE DATABASE ms_person_client;
 USE ms_person_client;
 
 -- Tabla de Clientes
@@ -22,7 +23,7 @@ CREATE TABLE IF NOT EXISTS cuentas (
     estado BOOLEAN NOT NULL,
     numero_cuenta VARCHAR(20) NOT NULL,
     saldo_inicial DECIMAL(10, 2) NOT NULL,
-    tipo_cuenta VARCHAR(50) NOT NULL CHECK (tipo_cuenta IN ('Ahorro', 'Corriente')),
+    tipo_cuenta VARCHAR(50) NOT NULL CHECK (tipo_cuenta IN ('AHORRO', 'CORRIENTE')),
     FOREIGN KEY (cliente_id) REFERENCES clientes(id)
 );
 
@@ -44,14 +45,19 @@ VALUES
     (UUID(), 'Amazonas y NNUU', 28, 'Femenino', '1712345678', 'Marianela Montalvo', '097548965', '5678', TRUE),
     (UUID(), '13 junio y Equinoccial', 40, 'Masculino', '1723456789', 'Juan Osorio', '098874587', '1245', TRUE);
 
+-- Asigna IDs de clientes a variables
+SET @id_jose = (SELECT id FROM clientes WHERE nombre = 'Jose Lema' LIMIT 1);
+SET @id_marianela = (SELECT id FROM clientes WHERE nombre = 'Marianela Montalvo' LIMIT 1);
+SET @id_juan = (SELECT id FROM clientes WHERE nombre = 'Juan Osorio' LIMIT 1);
+
 -- Inserción de datos iniciales en Cuentas
 INSERT INTO cuentas (id, cliente_id, estado, numero_cuenta, saldo_inicial, tipo_cuenta)
 VALUES
-    (UUID(), (SELECT id FROM clientes WHERE nombre = 'Jose Lema' LIMIT 1), TRUE, '478758', 2000.00, 'Ahorro'),
-    (UUID(), (SELECT id FROM clientes WHERE nombre = 'Marianela Montalvo' LIMIT 1), TRUE, '225487', 100.00, 'Corriente'),
-    (UUID(), (SELECT id FROM clientes WHERE nombre = 'Juan Osorio' LIMIT 1), TRUE, '495878', 0.00, 'Ahorro'),
-    (UUID(), (SELECT id FROM clientes WHERE nombre = 'Marianela Montalvo' LIMIT 1), TRUE, '496825', 540.00, 'Ahorro'),
-    (UUID(), (SELECT id FROM clientes WHERE nombre = 'Jose Lema' LIMIT 1), TRUE, '585545', 1000.00, 'Corriente');
+    (UUID(), @id_jose, TRUE, '478758', 2000.00, 'AHORRO'),
+    (UUID(), @id_marianela, TRUE, '225487', 100.00, 'CORRIENTE'),
+    (UUID(), @id_juan, TRUE, '495878', 0.00, 'AHORRO'),
+    (UUID(), @id_marianela, TRUE, '496825', 540.00, 'AHORRO'),
+    (UUID(), @id_jose, TRUE, '585545', 1000.00, 'CORRIENTE');
 
 -- Inserción de datos iniciales en Movimientos
 INSERT INTO movimientos (id, cuenta_id, fecha, tipo_movimiento, valor, saldo)
