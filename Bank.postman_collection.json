@@ -1,0 +1,389 @@
+{
+	"info": {
+		"_postman_id": "dfa60bfa-7965-4c57-9d76-e335cff53dde",
+		"name": "Bank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11193410"
+	},
+	"item": [
+		{
+			"name": "ms-clientes",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"edad\": 34,\n\"telefono\": \"09673223323\",\n\"contraseña\": \"12345\",\n\"genero\": \"Femenino\",\n\"direccion\": \"Norte\",\n\"nombre\": \"Patricia Orellana\",\n\"identificacion\": 1714031935\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/clientes",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/clientes",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/clientes/5cb62175-5f0a-47b5-b086-0b5a4de6769b",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"clientes",
+								"5cb62175-5f0a-47b5-b086-0b5a4de6769b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"edad\": 12,\n\"telefono\": \"0987580692\",\n\"contraseña\": \"12345\",\n\"genero\": \"Masculino\",\n\"direccion\": \"Ajavi\",\n\"nombre\": \"Danny Alexander Toala\",\n\"identificacion\": 1723463053\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/clients/d4b54f33-0a97-4479-b1b3-a61f658b9fd7",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"clients",
+								"d4b54f33-0a97-4479-b1b3-a61f658b9fd7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/clients/ece8a18d-196b-44a4-85d7-ceefa9b1e140",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"clients",
+								"ece8a18d-196b-44a4-85d7-ceefa9b1e140"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ms-cuentas",
+			"item": [
+				{
+					"name": "Account",
+					"item": [
+						{
+							"name": "Get All",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{servidor}}:{{puerto}}/api/cuentas",
+									"host": [
+										"{{servidor}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"cuentas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get One",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{servidor}}:{{puerto}}/api/cuentas/df50f031-49a9-49df-a8fd-a35f4a5b140e",
+									"host": [
+										"{{servidor}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"cuentas",
+										"df50f031-49a9-49df-a8fd-a35f4a5b140e"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"numeroCuenta\": \"23456789\",\n    \"tipoCuenta\": \"AHORRO\",\n    \"clienteId\": \"dd0e07dd-19a2-45e6-904e-8a214ef34199\",\n    \"saldoInicial\": 20.0,\n    \"estado\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{servidor}}:{{puerto}}/api/cuentas/404dc7cb-f4c1-465f-8f71-bd1eccb47a97",
+									"host": [
+										"{{servidor}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"cuentas",
+										"404dc7cb-f4c1-465f-8f71-bd1eccb47a97"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{servidor}}:{{puerto}}/api/cuentas/404dc7cb-f4c1-465f-8f71-bd1eccb47a97",
+									"host": [
+										"{{servidor}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"cuentas",
+										"404dc7cb-f4c1-465f-8f71-bd1eccb47a97"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"tipoCuenta\": \"AHORRO\",\n    \"clienteId\": \"adb846f0-106c-4789-8ae0-3c62ba8c3330\",\n    \"saldoInicial\": 20.0,\n    \"estado\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{servidor}}:{{puerto}}/api/cuentas",
+									"host": [
+										"{{servidor}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"cuentas"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Reports",
+					"item": [
+						{
+							"name": "General for cliente or fecha",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{servidor}}:{{puerto}}/api/reportes?fecha=2012-10-01to2025-02-03",
+									"host": [
+										"{{servidor}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"reportes"
+									],
+									"query": [
+										{
+											"key": "fecha",
+											"value": "2012-10-01to2025-02-03"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Account State",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{servidor}}:{{puerto}}/api/reportes/estado-de-cuenta?fecha=2012-10-01to2025-02-03&cliente=76747c4f-e46d-4adf-a44d-82628647b294",
+									"host": [
+										"{{servidor}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"reportes",
+										"estado-de-cuenta"
+									],
+									"query": [
+										{
+											"key": "fecha",
+											"value": "2012-10-01to2025-02-03"
+										},
+										{
+											"key": "cliente",
+											"value": "76747c4f-e46d-4adf-a44d-82628647b294"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Movements",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"tipoMovimiento\": \"RETIRO\",\n    \"cuenta\": \"010303029\",\n    \"valor\": 5\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{servidor}}:{{puerto}}/api/movimientos",
+									"host": [
+										"{{servidor}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"movimientos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{servidor}}:{{puerto}}/api/movimientos/ff127e57-d61e-4227-9c94-fc91b09b30d6",
+									"host": [
+										"{{servidor}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"movimientos",
+										"ff127e57-d61e-4227-9c94-fc91b09b30d6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get By Account",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{servidor}}:{{puerto}}/api/movimientos/cuenta/016520622",
+									"host": [
+										"{{servidor}}"
+									],
+									"port": "{{puerto}}",
+									"path": [
+										"api",
+										"movimientos",
+										"cuenta",
+										"016520622"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
